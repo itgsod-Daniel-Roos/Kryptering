@@ -5,22 +5,32 @@ def encrypt(cleartext, offset):
         raise ValueError('can not encrypt empty string')
     if offset == 0:
         raise ValueError('offset must not be zero')
-    for index, char in enumerate(cleartext):
-        if cleartext[index] == " ":
-            pass
+    encrypted = ""
+    for char in cleartext:
+        if char == " ":
+            encrypted += char
+        elif (alphabet.index(char) + offset) > 25:
+            encrypted += alphabet[(alphabet.index(char) + offset - 26)]
+        elif (alphabet.index(char) + offset) < 0:
+            encrypted += alphabet[(alphabet.index(char) + offset + 24)]
         else:
-            cleartext[index] = alphabet.index(char)
-    for index, char in enumerate(cleartext):
-        if cleartext[index] == " ":
-            pass
-        else:
-            cleartext[index] += offset
-    for index, char in enumerate(cleartext):
-        if cleartext[index] == " ":
-            pass
-        else:
-            cleartext[index] = alphabet[char]
+            encrypted += alphabet[(alphabet.index(char) + offset)]
+    return encrypted
 
-    return cleartext
+
+
+
+
+    # for index, char in enumerate(cleartext):
+    #     if cleartext[index] == " ":
+    #         pass
+    #     else:
+    #         cleartext[index] += offset
+    # for index, char in enumerate(cleartext):
+    #     if cleartext[index] == " ":
+    #         pass
+    #     else:
+    #         cleartext[index] = alphabet[char]
+    # return ' '
 
 #char = cleartext[index]
