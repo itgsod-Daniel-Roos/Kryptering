@@ -17,21 +17,3 @@ def encrypt(cleartext, offset):
         else:
             encrypted += alphabet[(alphabet.index(char) + offset)]
     return encrypted
-
-
-
-
-
-    # for index, char in enumerate(cleartext):
-    #     if cleartext[index] == " ":
-    #         pass
-    #     else:
-    #         cleartext[index] += offset
-    # for index, char in enumerate(cleartext):
-    #     if cleartext[index] == " ":
-    #         pass
-    #     else:
-    #         cleartext[index] = alphabet[char]
-    # return ' '
-
-#char = cleartext[index]
