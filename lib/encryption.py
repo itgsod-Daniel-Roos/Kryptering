@@ -1,2 +1,2 @@
-def encrypt():
+def encrypt(cleartext, cypher):
     pass
