@@ -22,7 +22,7 @@ def encrypt(cleartext, offset):
 def decrypt(encrypt, offset):
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     if encrypt == '':
-        raise ValueError('can not decrypt empty string')
+        raise ValueError('can not encrypt empty string')
     if offset == 0:
         raise ValueError('offset must not be zero')
     decrypted = ""
@@ -30,10 +30,10 @@ def decrypt(encrypt, offset):
     for char in encrypt:
         if char == " ":
             decrypted += char
-        elif (alphabet.index(char) + offset) > 25:
-            decrypted += alphabet[(alphabet.index(char) + offset - 26)]
-        elif (alphabet.index(char) + offset) < 0:
-            decrypted += alphabet[(alphabet.index(char) + offset + 26)]
+        elif (alphabet.index(char) - offset) > 25:
+            decrypted += alphabet[(alphabet.index(char) - offset - 26)]
+        elif (alphabet.index(char) - offset) < 0:
+            decrypted += alphabet[(alphabet.index(char) - offset + 26)]
         else:
-            decrypted += alphabet[(alphabet.index(char) + offset)]
-    return decrypted
+            decrypted += alphabet[(alphabet.index(char) - offset)]
+    return decrypted.lower()
