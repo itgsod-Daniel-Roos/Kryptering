@@ -19,15 +19,15 @@ def encrypt(cleartext, offset):
     return encrypted
 
 
-def decrypt(encrypt, offset):
+def decrypt(encrypted, offset):
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    if encrypt == '':
+    if encrypted == '':
         raise ValueError('can not encrypt empty string')
     if offset == 0:
         raise ValueError('offset must not be zero')
     decrypted = ""
-    encrypt = encrypt.upper()
-    for char in encrypt:
+    encrypted = encrypted.upper()
+    for char in encrypted:
         if char == " ":
             decrypted += char
         elif (alphabet.index(char) - offset) > 25:
